@@ -17,5 +17,5 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   const port = process.env.PORT || 10010;
   app.listen(port);
 
-  console.log('http://127.0.0.1:' + port);
+  console.log('http://127.0.0.1:' + port, process.env.NODE_ENV || 'no env');
 });
