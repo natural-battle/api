@@ -1,35 +1,19 @@
 'use strict';
 
+const ENTRY_NUMBER = 16;
+
+const listOfNumbers = Array.apply(null, {
+  length: ENTRY_NUMBER
+}).map(Number.call, Number);
+
 let initialGame = {
   "level": 1,
-  "entries": [{
-    "id": 1,
-    "progress": 0
-  }, {
-    "id": 2,
-    "progress": 0
-  }, {
-    "id": 3,
-    "progress": 0
-  }, {
-    "id": 4,
-    "progress": 0
-  }, {
-    "id": 5,
-    "progress": 0
-  }, {
-    "id": 6,
-    "progress": 0
-  }, {
-    "id": 7,
-    "progress": 0
-  }, {
-    "id": 8,
-    "progress": 0
-  }, {
-    "id": 9,
-    "progress": 0
-  }]
+  "entries": listOfNumbers.map(n => {
+    return {
+      id: n + 1,
+      progress: 0
+    };
+  })
 };
 
 function get(req, res) {
@@ -39,6 +23,7 @@ function get(req, res) {
 }
 
 function post(req, res) {
+  // TODO: storage
   initialGame = req.body;
   res.json(initialGame);
 };

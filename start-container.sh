@@ -19,4 +19,4 @@ docker run \
        node:8.1.2 \
        npm start
 
-# docker logs $CONTAINER_NAME
+docker logs -f $CONTAINER_NAME

@@ -1,12 +1,14 @@
 'use strict';
 
 const SwaggerExpress = require('swagger-express-mw');
-const app = require('express')();
-module.exports = app; // for testing
+const express = require('express');
+const app = express();
 
 const config = {
   appRoot: __dirname // required config
 };
+
+app.use(express.static('static'));
 
 SwaggerExpress.create(config, function(err, swaggerExpress) {
   if (err) { throw err; }
@@ -19,3 +21,5 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
 
   console.log('http://127.0.0.1:' + port, process.env.NODE_ENV || 'no env');
 });
+
+module.exports = app; // for testing
